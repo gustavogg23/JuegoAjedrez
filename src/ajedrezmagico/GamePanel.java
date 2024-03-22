@@ -18,8 +18,8 @@ import javax.swing.JPanel;
 
 public final class GamePanel extends JPanel implements Runnable{
     
-    public static int WIDTH = 1100;
-    public static int HEIGHT = 800;
+    public static int WIDTH = 900;
+    public static int HEIGHT = 600;
     final int FPS = 60;
     Thread gameThread;
     Tablero tablero = new Tablero();
