@@ -62,43 +62,38 @@ public final class GamePanel extends JPanel implements Runnable{
     }
     public void setPiezas() {
         
-        //los blancos
-        piezas.add(new Peon(WHITE,0,6));
-        piezas.add(new Peon(WHITE,1,6));
-        piezas.add(new Peon(WHITE,2,6));
-        piezas.add(new Peon(WHITE,3,6));
-        piezas.add(new Peon(WHITE,4,6));
-        piezas.add(new Peon(WHITE,5,6));
-        piezas.add(new Peon(WHITE,6,6));
-        piezas.add(new Peon(WHITE,7,6));
-        piezas.add(new Torre(WHITE,0,7));
-        piezas.add(new Caballo(WHITE,1,7));
-        piezas.add(new Alfil(WHITE,2,7));
-        piezas.add(new Reina(WHITE,3,7));
-        piezas.add(new Rey(WHITE,4,7));
-        piezas.add(new Alfil(WHITE,5,7));
-        piezas.add(new Caballo(WHITE,6,7));
-        piezas.add(new Torre(WHITE,7,7));
-        
-        
-        
-        //los negros
-        piezas.add(new Peon(BLACK,0,1));
-        piezas.add(new Peon(BLACK,1,1));
-        piezas.add(new Peon(BLACK,2,1));
-        piezas.add(new Peon(BLACK,3,1));
-        piezas.add(new Peon(BLACK,4,1));
-        piezas.add(new Peon(BLACK,5,1));
-        piezas.add(new Peon(BLACK,6,1));
-        piezas.add(new Peon(BLACK,7,1));
-        piezas.add(new Torre(BLACK,0,0));
-        piezas.add(new Caballo(BLACK,1,0));
-        piezas.add(new Alfil(BLACK,2,0));
-        piezas.add(new Reina(BLACK,3,0));
-        piezas.add(new Rey(BLACK,4,0));
-        piezas.add(new Alfil(BLACK,5,0));
-        piezas.add(new Caballo(BLACK,6,0));
-        piezas.add(new Torre(BLACK,7,0));
+        //Se estbalecen las piezas blancas
+        for (int i = 0; i < 8; i++) {
+            piezas.add(new Peon(WHITE, i, 6));
+            if (i == 0 || i == 7) {
+                piezas.add(new Torre(WHITE, i, 7));
+            } else if (i == 1 || i == 6) {
+                piezas.add(new Caballo(WHITE, i, 7));
+            } else if (i == 2 || i == 5) {
+                piezas.add(new Alfil(WHITE, i, 7));
+            } else if (i == 3) {
+                piezas.add(new Reina(WHITE, i, 7));
+            } else if (i == 4) {
+                piezas.add(new Rey(WHITE, i, 7));
+            }
+        }
+     
+        //Se establecen las piezas negras
+        for (int i = 0; i < 8; i++) {
+            piezas.add(new Peon(BLACK, i, 1));
+            if (i == 0 || i == 7) {
+                piezas.add(new Torre(BLACK, i, 0));
+            } else if (i == 1 || i == 6) {
+                piezas.add(new Caballo(BLACK, i, 0));
+            } else if (i == 2 || i == 5) {
+                piezas.add(new Alfil(BLACK, i, 0));
+            } else if (i == 3) {
+                piezas.add(new Reina(BLACK, i, 0));
+            } else if (i == 4) {
+                piezas.add(new Rey(BLACK, i, 0));
+            }
+        }
+
         
     }
     private void copyPiezas(ArrayList<Pieza> source, ArrayList<Pieza> Target) {
