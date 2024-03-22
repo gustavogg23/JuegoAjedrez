@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 
 public final class GamePanel extends JPanel implements Runnable{
     
-    public static int WIDTH = 900;
+    public static int WIDTH = 600;
     public static int HEIGHT = 600;
     final int FPS = 60;
     Thread gameThread;
@@ -96,19 +96,17 @@ public final class GamePanel extends JPanel implements Runnable{
 
         
     }
-    private void copyPiezas(ArrayList<Pieza> source, ArrayList<Pieza> Target) {
-        
+    private void copyPiezas(ArrayList<Pieza> source, ArrayList<Pieza> Target) {        
         Target.clear();
+        
         for(int i = 0; i < source.size(); i++) {
-            Target.add(source.get(i));
-            
-            
+            Target.add(source.get(i));            
         }
         
     }
      @Override
     public void run() {
-       //loop del juego
+       //Bucle del juego
        
        double drawInterval = 1000000000/FPS;
        double delta = 0;
@@ -125,16 +123,14 @@ public final class GamePanel extends JPanel implements Runnable{
            if(delta >= 1) {
                actualizar();
                repaint();
-               delta--;
-               
+               delta--;               
             }
         }
     }
     private void actualizar() {
         
         if(promocion) {
-            evolucionando();
-            
+            evolucionando();            
         }
         else if(juegoTerminado == false && ahogado == false){
             if(raton.presionado) {
@@ -150,8 +146,7 @@ public final class GamePanel extends JPanel implements Runnable{
                 }
             }
             else{//si el jugador esta sosteniendo la pieza va a simular el movimiento
-                simulador();
-                
+                simulador();                
             }
             
         }
@@ -387,8 +382,7 @@ public final class GamePanel extends JPanel implements Runnable{
                 }
             }
             else {
-                //la pieza atacando es el caballo
-                
+                //la pieza atacando es el caballo                
             }
         }
         return true;
@@ -426,8 +420,7 @@ public final class GamePanel extends JPanel implements Runnable{
         //reinicia la posicion del rey y restaura la pieza que elimino
         rey.reiniciarPos();
         copyPiezas(piezas, simPiezas);
-        
-        
+                
         return movimientoValido;
     }
     private boolean esAhogado(){
