@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/gusta/Documentos/UNIMAR/TRIMESTRE%20V/Estructura%20de%20Datos/JuegoAjedrez/src/juegoajedrez/JuegoAjedrez.java</file>
-            <file>file:/C:/Users/gusta/Documentos/UNIMAR/TRIMESTRE%20V/Estructura%20de%20Datos/JuegoAjedrez/src/juegoajedrez/Pieza.java</file>
-            <file>file:/C:/Users/gusta/Documentos/UNIMAR/TRIMESTRE%20V/Estructura%20de%20Datos/JuegoAjedrez/src/juegoajedrez/PanelTablero.java</file>
-            <file>file:/C:/Users/gusta/Documentos/UNIMAR/TRIMESTRE%20V/Estructura%20de%20Datos/JuegoAjedrez/src/juegoajedrez/Tablero.java</file>
+            <file>file:/C:/Users/gusta/Documentos/UNIMAR/TRIMESTRE%20V/Estructura%20de%20Datos/JuegoAjedrez/src/ajedrezmagico/AjedrezMagico.java</file>
+            <file>file:/C:/Users/gusta/Documentos/UNIMAR/TRIMESTRE%20V/Estructura%20de%20Datos/JuegoAjedrez/src/ajedrezmagico/Tablero.java</file>
+            <file>file:/C:/Users/gusta/Documentos/UNIMAR/TRIMESTRE%20V/Estructura%20de%20Datos/JuegoAjedrez/src/ajedrezmagico/GamePanel.java</file>
         </group>
     </open-files>
 </project-private>

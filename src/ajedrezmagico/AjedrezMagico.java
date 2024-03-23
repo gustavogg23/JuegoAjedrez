@@ -19,9 +19,6 @@ public class AjedrezMagico {
         window.setLocationRelativeTo(null);
         window.setVisible(true);
         
-        gp.iniciarJuego();
-        
-  
-    }
-    
+        gp.iniciarJuego();  
+    }   
 }

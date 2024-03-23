@@ -104,6 +104,7 @@ public final class GamePanel extends JPanel implements Runnable{
         }
         
     }
+    
      @Override
     public void run() {
        //Bucle del juego
@@ -243,6 +244,7 @@ public final class GamePanel extends JPanel implements Runnable{
         }
         return false;
     }
+    
     private boolean reyEnJaque(){
         Pieza rey = tomarRey(true);
         
