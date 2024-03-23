@@ -14,6 +14,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public final class GamePanel extends JPanel implements Runnable{
@@ -251,6 +252,7 @@ public final class GamePanel extends JPanel implements Runnable{
         
         if(activeP.sePuedeMover(rey.col, rey.fila)) {
             jaque = activeP;
+            JOptionPane.showMessageDialog(this, "Jaque!");
             return true;
         }
         else {
@@ -277,7 +279,7 @@ public final class GamePanel extends JPanel implements Runnable{
     }
     private boolean jaqueMate() {
         Pieza rey = tomarRey(true);
-        
+     
         if(reysePuedeMover(rey)) {
             return false;
         }
@@ -544,16 +546,22 @@ public final class GamePanel extends JPanel implements Runnable{
             }
          
             activeP.draw(g2);
-        }
-        if(promocion) {
-            for(Pieza pieza : promoPiezas) {
-                g2.drawImage(pieza.image, pieza.getX(pieza.col), pieza.getY(pieza.fila), Tablero.SQUARE_SIZE, Tablero.SQUARE_SIZE, null);
+        
+            if(promocion) {
+                for(Pieza pieza : promoPiezas) {
+                    g2.drawImage(pieza.image, pieza.getX(pieza.col), pieza.getY(pieza.fila), Tablero.SQUARE_SIZE, Tablero.SQUARE_SIZE, null);
+                }
             }
             if(juegoTerminado) {
-                //por hacer anuncio de ganador
+                if(currentColor == WHITE) {
+                    JOptionPane.showMessageDialog(this, "Jaque Mate!");
+                }
+                else {
+                    JOptionPane.showMessageDialog(this, "Jaque Mate!");
+                }                
             }
             if(ahogado) {
-                //por hacer 
+                JOptionPane.showMessageDialog(null, "como la mente de chu, dos cucarachas jugando domino diciendo paso");           
             }
         }
     }
