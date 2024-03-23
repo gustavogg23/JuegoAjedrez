@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 
 public final class GamePanel extends JPanel implements Runnable{
     
-    public static int WIDTH = 600;
+    public static int WIDTH = 675;
     public static int HEIGHT = 600;
     final int FPS = 60;
     Thread gameThread;
@@ -54,12 +54,15 @@ public final class GamePanel extends JPanel implements Runnable{
         
         setPiezas();
         copyPiezas(piezas, simPiezas);
+        
+        
        
     }
     public void iniciarJuego() {
         gameThread = new Thread(this);
         gameThread.start();
     }
+    
     public void setPiezas() {
         
         //Se estbalecen las piezas blancas

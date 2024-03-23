@@ -30,40 +30,45 @@ public class Rey extends Pieza {
             }
             
             //en roque
-            if(seMovio == false){
-                
-                //en roque a la derecha
-                if(targetCol == preCol+2 && targetFila == preFila && piezaEnElCaminoLineal(targetCol, targetFila) == false) {
-                    for(Pieza pieza : GamePanel.simPiezas) {
-                        if(pieza.col == preCol + 3 && pieza.fila == preFila && pieza.seMovio == false) {
-                            GamePanel.enRoque = pieza;
-                            return true;
-                        }
-                    }
-                }
+            if (preFila != 0 && preFila != 7) {
+                // El rey no está en su posición inicial, no permitir enroque
+                return false;
             }
-            //en roque a la izquierda
-            if(targetCol == preCol - 2 && targetFila == preFila && piezaEnElCaminoLineal(targetCol, targetFila) == false) {
-                Pieza p[] = new Pieza[2];
-                for(Pieza pieza : GamePanel.simPiezas) {
-                    if(pieza.col == preCol - 3 && pieza.fila == targetFila) {
-                        p[0] = pieza;
-                    }
-                    if(pieza.col == preCol - 4 && pieza.fila == targetFila) {
-                        p[1] = pieza;
-                    }
-                    System.out.println(p[1]);
-                    
-                    if(p[0] == null && p[1] != null && p[1].seMovio == false) {
-                        GamePanel.enRoque = p[1];
+
+            if (!seMovio) {
+            // Enroque a la derecha
+                if (targetCol == preCol + 2 && targetFila == preFila && piezaEnElCaminoLineal(targetCol, targetFila) == false) {
+                    for (Pieza pieza : GamePanel.simPiezas) {
+                        if (pieza.col == preCol + 3 && pieza.fila == preFila && !pieza.seMovio) {
+                        GamePanel.enRoque = pieza;
                         return true;
                     }
                 }
             }
+            // Enroque a la izquierda
+             if (targetCol == preCol - 2 && targetFila == preFila && piezaEnElCaminoLineal(targetCol, targetFila) == false) {
+                Pieza p[] = new Pieza[2];
+                for (Pieza pieza : GamePanel.simPiezas) {
+                    if (pieza.col == preCol - 3 && pieza.fila == targetFila && !pieza.seMovio) {
+                      p[0] = pieza;
+                    }
+                    if (pieza.col == preCol - 4 && pieza.fila == targetFila && !pieza.seMovio) {
+                      p[1] = pieza;
+                    }
+                }
+                    if (p[0] == null && p[1] != null && !p[1].seMovio) {
+                         GamePanel.enRoque = p[1];
+                        return true;
+                     }   
+                }
+            }
+
+                 // Si llegamos aquí, el enroque no es válido
+                return false;
+
+            }
+             return false;
         }
-        
-        return false;
     }
-}
     
 
