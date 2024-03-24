@@ -39,9 +39,22 @@ public class ListaPiezas {
         
         tamano++; // Se aumenta el tamaño de la lista
     }
+    
+    public Pieza get(int index) {
+        if (index < 0 || index >= tamano) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
 
-    // Método para obtener el tamaño de la lista
+        NodoPieza temp = cabeza;
+            for (int i = 0; i < index; i++) {
+             temp = temp.getSiguiente();
+            }
+        return temp.getValor();
+    }
+
     public int getTamano() {
         return tamano;
     }
+
+
 }

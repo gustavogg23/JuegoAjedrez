@@ -1,13 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ajedrezmagico;
 
-/**
- *
- * @author Nelson
- */
 public class Casilla {
-    
+    private int col;
+    private int fila;
+
+    public Casilla(int col, int fila) {
+        this.col = col;
+        this.fila = fila;
+    }
+
+    // Getters y setters
+    public int getColumna() {
+        return col;
+    }
+
+    public void setColumna(int columna) {
+        this.col = columna;
+    }
+
+    public int getFila() {
+        return fila;
+    }
+
+    public void setFila(int fila) {
+        this.fila = fila;
+    }
 }

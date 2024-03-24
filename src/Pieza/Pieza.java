@@ -216,4 +216,15 @@ public BufferedImage getImage(String imagePath){
     public void draw(Graphics2D g2) {
         g2.drawImage(image, x, y, Tablero.SQUARE_SIZE, Tablero.SQUARE_SIZE, null);
     }
+
+    public Pieza(Tipos tipo) {
+        this.tipo = tipo;
+    }
+    public Pieza(PiezaEnum tipo) {
+        this.tipo = tipo;
+    }
+
+    public Tipos getTipo() {
+        return tipo;
+    }
 }
