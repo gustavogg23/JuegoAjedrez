@@ -14,6 +14,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -21,6 +22,8 @@ public final class GamePanel extends JPanel implements Runnable{
     
     public static int WIDTH = 675;
     public static int HEIGHT = 600;
+
+    
     final int FPS = 60;
     Thread gameThread;
     Tablero tablero = new Tablero();
@@ -96,10 +99,17 @@ public final class GamePanel extends JPanel implements Runnable{
             } else if (i == 4) {
                 piezas.add(new Rey(BLACK, i, 0));
             }
-        }
-
-        
+        } 
     }
+    public List<Movimiento> generarMovimientos() {
+            List<Movimiento> movimientosLegales = new ArrayList<>();
+        // Iterate through all pieces on the board
+        for (Pieza pieza : piezas) {
+            List<Movimiento> pieceMoves = pieza.obtenerMovimientosLegales();
+            movimientosLegales.addAll(pieceMoves);
+        }
+        return movimientosLegales;
+        }
     private void copyPiezas(ArrayList<Pieza> source, ArrayList<Pieza> Target) {        
         Target.clear();
         
@@ -108,6 +118,7 @@ public final class GamePanel extends JPanel implements Runnable{
         }
         
     }
+    
      @Override
     public void run() {
        //Bucle del juego

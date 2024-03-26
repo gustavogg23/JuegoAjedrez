@@ -1,4 +1,3 @@
-
 package Pieza;
 
 import ajedrezmagico.GamePanel;
