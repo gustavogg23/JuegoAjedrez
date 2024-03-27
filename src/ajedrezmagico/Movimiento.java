@@ -2,31 +2,44 @@ package ajedrezmagico;
 
 import Pieza.Pieza;
 
-
 public class Movimiento {
-    private Pieza pieza;
-    private Casilla destino;
+    private int colDeOrigen;
+    private int filaDeOrigen;
+    private int targetCol;
+    private int targetFila;
+    private Pieza piezaCapturada;
 
-    public Movimiento(Pieza pieza, Casilla destino) {
-        this.pieza = pieza;
-        this.destino = destino;
+    public Movimiento(int colDeOrigen, int filaDeOrigen, int targetCol, int targetFila) {
+        this.colDeOrigen = colDeOrigen;
+        this.filaDeOrigen = filaDeOrigen;
+        this.targetCol = targetCol;
+        this.targetFila = targetFila;
+        this.piezaCapturada = null;
     }
-
-    // Getters y setters
-    public Pieza getPieza() {
-        return pieza;
-    }
-
-    public void setPieza(Pieza pieza) {
-        this.pieza = pieza;
-    }
-
-    public Casilla getDestino() {
-        return destino;
-    }
-
-    public void setDestino(Casilla destino) {
-        this.destino = destino;
+    public Movimiento(int colDeOrigen, int filaDeOrigen, int targetCol, int targetFila, Pieza piezaCapturada) {
+        this.colDeOrigen = colDeOrigen;
+        this.filaDeOrigen = filaDeOrigen;
+        this.targetCol = targetCol;
+        this.targetFila = targetFila;
+        this.piezaCapturada = piezaCapturada;
     }
     
+    public int getcolDeOrigen() {
+        return colDeOrigen;
+    }
+
+    public int getfilaDeOrigen() {
+        return filaDeOrigen;
+    }
+
+    public int getTargetCol() {
+        return targetCol;
+    }
+
+    public int getTargetFila() {
+        return targetFila;
+    }
+
+    // Implement any additional methods or logic related to moves here
 }
+

@@ -1,11 +1,14 @@
 package Pieza;
 
 import ajedrezmagico.GamePanel;
+import ajedrezmagico.Movimiento;
 import ajedrezmagico.Tablero;
 import ajedrezmagico.Tipos;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.imageio.ImageIO;
 
 
@@ -212,19 +215,43 @@ public BufferedImage getImage(String imagePath){
     }
         return false;
     }
+    public List<Movimiento> obtenerMovimientosLegales() {
+        List<Movimiento> movimientosLegales = new ArrayList<>();
+             if (tipo == Tipos.PEON) {
+                int valor = (color == GamePanel.WHITE) ? -1 : 1;
+                int targetFila1 = fila + valor;
+                int targetFila2 = fila + valor * 2;
+
+                if (estaDentroDelTablero(col, targetFila1) && capturada == null) {
+                    movimientosLegales.add(new Movimiento(col, fila, col, targetFila1));
+                }
+
+                if (!seMovio && estaDentroDelTablero(col, targetFila2) && capturada == null &&
+                        !piezaEnElCaminoLineal(col, targetFila2)) {
+                    movimientosLegales.add(new Movimiento(col, fila, col, targetFila2));
+                }
+
+                int[] diagonalCols = {col - 1, col + 1};
+                    for (int diagonalCol : diagonalCols) {
+                        if (estaDentroDelTablero(diagonalCol, targetFila1)) {
+                            Pieza piezaEnDiagonal = siendoCapt(diagonalCol, targetFila1);
+                                if (piezaEnDiagonal != null && piezaEnDiagonal.color != color) {
+                                     movimientosLegales.add(new Movimiento(col, fila, diagonalCol, targetFila1, piezaEnDiagonal));
+                        }
+                    }
+                }
+
+                for (Pieza pieza : GamePanel.simPiezas) {
+                    if (Math.abs(pieza.col - col) == 1 && pieza.fila == fila && pieza.dosPasos) {
+                        movimientosLegales.add(new Movimiento(col, fila, pieza.col, targetFila1, pieza));
+                    }
+                }
+            }
+        return movimientosLegales;
+    }
     
     public void draw(Graphics2D g2) {
         g2.drawImage(image, x, y, Tablero.SQUARE_SIZE, Tablero.SQUARE_SIZE, null);
     }
 
-    public Pieza(Tipos tipo) {
-        this.tipo = tipo;
-    }
-    public Pieza(PiezaEnum tipo) {
-        this.tipo = tipo;
-    }
-
-    public Tipos getTipo() {
-        return tipo;
-    }
 }
